@@ -3,4 +3,5 @@
 *.log
 # dist is the output directory for gulp
 dist/*
+wpk/*
 
