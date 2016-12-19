@@ -1,28 +1,25 @@
-(function() {
-	'use strict';
+'use strict';
 
-	var app = angular.module('mainApp', []);
+require('../bower_components/angular/angular.js');
 
-	app.directive('iftHeader', function() {
-		return {
-			templateUrl: './tmpl/ift-header.html'
-		};
-	});
-	
-	app.directive('iftFooter', function($http) {
-		return {
-			link: function(scope, element, attrs) {
-				console.log('link', arguments);
-				$http.get('./tmpl/ift-footer.html')
-					.then(function(response) {
-						var html = response.data;
-						element.html(html);
-					}).catch(function(error) {
-						console.error('error', error);
-					});
-				
-			}
-		};
-	});
+var iftHeaderUrl = require('./tmpl/ift-header.html');
+var iftFooterUrl = require('./tmpl/ift-footer.html');
+console.log('iftFooterUrl', iftFooterUrl);
 
-})();
+var app = angular.module('mainApp', []);
+
+app.directive('iftHeader', function() {
+	return {
+		templateUrl: iftHeaderUrl,
+		link: function() {
+			console.log('xxx iftHeader link', arguments);
+		}
+	};
+});
+
+app.directive('iftFooter', function($templateCache) {
+	return {
+		templateUrl: iftFooterUrl
+	};
+});
+
