@@ -3,7 +3,7 @@
 require('../bower_components/angular/angular.js');
 require('../bower_components/angular-i18n/angular-locale_fr-fr.js');
 require('./ift-star/ift-star.js');
-require('./ift-star/ift-star.css');
+
 
 var iftHeaderUrl = require('./tmpl/ift-header.html');
 var iftFooterUrl = require('./tmpl/ift-footer.html');
